@@ -18,12 +18,9 @@
   <label for="contents">Detail:</label>
   <textarea name="contents" id="contents" rows="3" cols="40"></textarea><br>
   <div th:if="${#fields.hasErrors('contents')}" th:errors="*{contents}"></div>
-  
   <input type="submit" value="Confirm">
   
-  
-
-
+ 
 </form>
 <form method="post" action="#" th:action="@{/inquiry/confirm}" th:object="${inquiryForm}">
 	<label for="name">Name:</label>
