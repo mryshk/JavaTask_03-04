@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title th:text="${title}"></title>
+</head>
+<body>
+<h2 th:text="${title}">title</h2>
+<h2 th:text="${complete}"></h2>
+<form method="post" action="#" th:action="@{/survey/confirm}" th:object="${surveyForm}">
+  <div>
+     <label for="age">Age:</label>
+     <input id="age" name="age" type="text" th:value="*{age}">
+     <div th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></div>
+  </div>
+
+  <div>
+    <label for="satisfaction">1</label>
+    <input id="satisfaction" name="satisfaction" type="radio" value=1>
+    <label for="satisfaction">2</label>
+    <input id="satisfaction" name="satisfaction" type="radio" value=2>
+    <label for="satisfaction">3</label>
+    <input id="satisfaction" name="satisfaction" type="radio" value=3>  
+    <label for="satisfaction">4</label>
+    <input id="satisfaction" name="satisfaction" type="radio" value=4>
+    <label for="satisfaction">5</label>
+    <input id="satisfaction" name="satisfaction" type="radio" value=5>
+    <div th:if="${#fields.hasErrors('satisfaction')}" th:errors="*{satisfaction}"></div>
+  </div>
+  
+  <div>
+    <label for="comment">Comment:</label>
+    <textarea id="comment" name="comment" rows="3" cols="50" th:field="*{comment}" ></textarea>
+    <div th:if="${#fields.hasErrors('comment')}" th:errors="*{comment}"></div>
+  </div>
+  
+
+  <div>
+     <input type="submit" value="確認ボタン">
+  </div>
+</form>
+
+</body>
+</html>
