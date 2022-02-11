@@ -43,7 +43,7 @@ public class InquiryController {
 	}
 	
 	
-	@PostMapping("/conplete")
+	@PostMapping("/complete")
 	public String complete(@Validated InquiryForm inquiryForm, 
 			BindingResult result, 
 			Model model, 
@@ -54,7 +54,7 @@ public class InquiryController {
 			return "inquiry/form";
 		}
 		
-		redirectAttributes.addFlashAttribute("complete","Registered");
+		redirectAttributes.addFlashAttribute("complete","Registered!");
 		return "redirect:/inquiry/form";
 	}
 	
