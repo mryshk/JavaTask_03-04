@@ -3,6 +3,7 @@ package com.example.demo.app.survey;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,7 +28,7 @@ public class SurveyController {
 	
 	
 	@PostMapping("/confirm")
-	public String confirm(SurveyForm surveyForm,BindingResult result, Model model) {
+	public String confirm(@Validated SurveyForm surveyForm,BindingResult result, Model model) {
 		if(result.hasErrors()) {
 			model.addAttribute("title", "surveyForm");
 			return "survey/form";
@@ -38,7 +39,7 @@ public class SurveyController {
 	}
 	
 	@PostMapping("/complete")
-	public String complete(SurveyForm surveyForm,
+	public String complete(@Validated SurveyForm surveyForm,
 			Model model, 
 			BindingResult result, 
 			RedirectAttributes redirectAttributes) {
@@ -47,7 +48,7 @@ public class SurveyController {
 			model.addAttribute("title", "SurveyForm");
 			return "survey/form";
 		}
-		redirectAttributes.addFlashAttribute("complete" ,"Complete");
+		redirectAttributes.addFlashAttribute("complete" ,"Complete! Yes!!!!!!");
 		return "redirect:/survey/form";
 	}
 	
